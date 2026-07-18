@@ -1,0 +1,233 @@
+.article {
+  --article-width: 62rem;
+  max-width: var(--article-width);
+  margin-inline: auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 4vw, 2.5rem) 0;
+}
+
+/* ---- Header, left-aligned to the reading axis ---- */
+.head {
+  max-width: var(--measure-wide);
+  padding-bottom: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: var(--space-md);
+}
+
+.kickerLink {
+  color: var(--ember-ink);
+}
+
+.kickerNumeral {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.kickerDivider {
+  width: 1.5rem;
+  height: 1px;
+  background: var(--rule-strong);
+}
+
+.kickerVolume {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.title {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-md);
+}
+
+.standfirst {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+  line-height: 1.4;
+  color: var(--ink-muted);
+  font-weight: 400;
+  max-width: 34ch;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: var(--space-lg);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-faint);
+}
+
+.byline {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+  color: var(--ink-muted);
+}
+
+.metaDot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--ink-faint);
+}
+
+/* ---- Full-width lead image (magazine opener) ---- */
+.lead {
+  margin: 0 0 var(--space-xl);
+}
+
+.leadMedia {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--paper-deep);
+}
+
+.leadImg {
+  object-fit: cover;
+}
+
+.leadCaption {
+  margin-top: 0.7rem;
+  padding-left: var(--space-sm);
+  border-left: 1px solid var(--rule-strong);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ink-faint);
+  max-width: 60ch;
+}
+
+/* ---- Body: reading column left, annotation margin right ---- */
+.body {
+  max-width: var(--measure);
+  position: relative;
+}
+
+/* Prose rhythm — applied to the children rendered inside .body */
+.body :global(p) {
+  font-size: 1.12rem;
+  line-height: 1.72;
+  color: var(--ink);
+  margin-bottom: var(--space-md);
+}
+
+.hasDropcap :global(p:first-of-type)::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 4.2rem;
+  line-height: 0.82;
+  padding: 0.25rem 0.6rem 0 0;
+  color: var(--ink-strong);
+}
+
+.body :global(h2) {
+  font-size: clamp(1.6rem, 3.4vw, 2.1rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin: var(--space-2xl) 0 var(--space-sm);
+  padding-top: var(--space-sm);
+}
+
+.body :global(h2 .section-index) {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ember-ink);
+  margin-bottom: 0.6rem;
+}
+
+.body :global(h3) {
+  font-size: 1.3rem;
+  margin: var(--space-lg) 0 var(--space-2xs);
+}
+
+.body :global(blockquote) {
+  margin: var(--space-2xl) 0;
+  padding-top: var(--space-md);
+  border-top: 2px solid var(--ember);
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  color: var(--ink-strong);
+  text-wrap: balance;
+}
+
+.body :global(blockquote p) {
+  font-family: var(--font-display) !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+  margin-bottom: 0 !important;
+}
+
+.body :global(strong) {
+  font-weight: 600;
+  color: var(--ink-strong);
+}
+
+.body :global(em) {
+  font-style: italic;
+}
+
+.body :global(a) {
+  color: var(--ember-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in oklch, var(--ember-ink) 40%, transparent);
+  transition: text-decoration-color var(--dur-fast) ease;
+}
+
+.body :global(a:hover) {
+  text-decoration-color: var(--ember-ink);
+}
+
+/* Lead art within the body */
+.body :global(figure) {
+  margin: var(--space-lg) 0;
+}
+
+.body :global(figure img) {
+  width: 100%;
+  border-radius: 2px;
+}
+
+.body :global(figcaption) {
+  margin-top: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ink-faint);
+  padding-left: var(--space-sm);
+  border-left: 1px solid var(--rule-strong);
+}
+
+@media (max-width: 34rem) {
+  .hasDropcap :global(p:first-of-type)::first-letter {
+    font-size: 3.4rem;
+  }
+}

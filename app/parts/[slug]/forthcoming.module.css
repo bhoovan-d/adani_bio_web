@@ -1,0 +1,56 @@
+.forthcoming {
+  padding: var(--space-lg) 0 var(--space-xl);
+}
+
+.badge {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ember-ink);
+  margin-bottom: var(--space-md);
+}
+
+.lead {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: var(--ink-strong);
+  margin-bottom: var(--space-lg);
+  max-width: 32ch;
+}
+
+.sections {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-xl);
+  border-top: 1px solid var(--rule);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.sectionHeading {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--ink-strong);
+}
+
+.sectionBlurb {
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+.back {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ember-ink);
+}

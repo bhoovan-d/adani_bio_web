@@ -1,0 +1,159 @@
+/* ============================================================
+   The Adani Empire — Series
+   Design system: "The Longform Dossier"
+   Restrained editorial · paper + ink + one ember accent
+   ============================================================ */
+
+:root {
+  /* ---- Color: warm paper, deep ink, one ember accent ---- */
+  --paper: oklch(0.972 0.006 78);          /* body background — warm off-white */
+  --paper-deep: oklch(0.952 0.008 78);     /* recessed surfaces, footer */
+  --surface: oklch(0.988 0.004 78);        /* raised reading surface */
+
+  --ink: oklch(0.245 0.008 60);            /* body text */
+  --ink-strong: oklch(0.185 0.010 55);     /* headlines */
+  --ink-black: oklch(0.155 0.012 55);      /* dark bands: cover scrim base, footer */
+  --ink-muted: oklch(0.455 0.010 62);      /* meta, captions — passes 4.5:1 on paper */
+  --ink-faint: oklch(0.605 0.012 65);      /* de-emphasised meta on paper */
+
+  /* On dark photography / ink bands */
+  --on-dark: oklch(0.97 0.006 78);
+  --on-dark-muted: oklch(0.82 0.010 78);
+
+  --rule: oklch(0.885 0.010 72);           /* hairline dividers, ledger lines */
+  --rule-strong: oklch(0.820 0.012 70);    /* heavier rules */
+
+  --ember: oklch(0.585 0.150 47);          /* the accent — marks, fills, large */
+  --ember-ink: oklch(0.505 0.150 43);      /* accent for text/links (≥4.5:1 on paper) */
+  --ember-wash: oklch(0.585 0.150 47 / 0.09); /* faint accent tint for callout ground */
+
+  /* ---- Type ---- */
+  --font-display: var(--font-caslon), "Libre Caslon Display", Georgia, "Times New Roman", serif;
+  --font-body: var(--font-franklin), "Libre Franklin", system-ui, -apple-system, sans-serif;
+
+  /* ---- Spacing scale (fluid, varied for rhythm) ---- */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: clamp(4rem, 9vw, 7rem);
+  --space-3xl: clamp(6rem, 13vw, 10rem);
+
+  /* ---- Chrome ---- */
+  --header-h: clamp(3.5rem, 6vw, 4.25rem);
+
+  /* ---- Reading measure ---- */
+  --measure: 40rem;         /* ~68ch body column */
+  --measure-wide: 46rem;    /* header / standfirst */
+  --page-max: 78rem;        /* outer page frame */
+  --margin-col: 15rem;      /* dossier margin note column */
+
+  /* ---- Motion ---- */
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 140ms;
+  --dur-med: 320ms;
+  --dur-slow: 620ms;
+
+  /* ---- Z-index scale (semantic) ---- */
+  --z-progress: 60;
+  --z-header: 50;
+  --z-overlay: 40;
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+  min-height: 100vh;
+}
+
+/* Numeric contexts use tabular oldstyle→lining figures, never a mono font */
+.tnum {
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--ink-strong);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--ember-ink);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ember-ink);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+::selection {
+  background: var(--ember-wash);
+  color: var(--ink-strong);
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--ink-strong);
+  color: var(--paper);
+  padding: 0.6rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  border-radius: 0 0 4px 0;
+}
+.skip-link:focus {
+  left: 0;
+}

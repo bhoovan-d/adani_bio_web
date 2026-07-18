@@ -1,0 +1,70 @@
+.footer {
+  background: var(--paper-deep);
+  border-top: 1px solid var(--rule);
+  margin-top: var(--space-3xl);
+  padding: var(--space-2xl) clamp(1.25rem, 4vw, 2.5rem) var(--space-lg);
+}
+
+.inner {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.colophon {
+  max-width: 30rem;
+}
+
+.mark {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background: var(--ember);
+  margin-bottom: var(--space-sm);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--ink-strong);
+  line-height: 1.1;
+}
+
+.note {
+  margin-top: var(--space-2xs);
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 34ch;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.link {
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color var(--dur-fast) ease;
+}
+
+.link:hover {
+  color: var(--ember-ink);
+}
+
+.fineprint {
+  max-width: var(--page-max);
+  margin: var(--space-2xl) auto 0;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--rule);
+  color: var(--ink-faint);
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+}

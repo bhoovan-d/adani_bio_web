@@ -1,0 +1,34 @@
+/* Breaks out past the reading measure toward the annotation margin on wide
+   screens, for a magazine-feature rhythm. */
+.figure {
+  margin: var(--space-2xl) 0;
+}
+
+.media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--paper-deep);
+}
+
+.img {
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.caption {
+  margin-top: 0.7rem;
+  padding-left: var(--space-sm);
+  border-left: 1px solid var(--rule-strong);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ink-faint);
+  max-width: 56ch;
+}
+
+@media (min-width: 63.001rem) {
+  .figure {
+    width: calc(100% + var(--margin-col) + 2.5rem);
+  }
+}
