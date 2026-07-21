@@ -2,9 +2,9 @@ import { LedgerNote } from "@/components/LedgerNote";
 import { InlineFigure } from "@/components/InlineFigure";
 
 /**
- * Part I — The Foundation & The Man.
+ * Volume I · Post 1 — The Foundation & The Man.
  * Facts drawn from the public record; framing is editorial.
- * Written as the sample Part; replace or extend freely.
+ * Written as the sample Post; replace or extend freely.
  */
 export default function Content() {
   return (
@@ -74,7 +74,7 @@ export default function Content() {
         importantly, it revealed the pattern that would define everything after
         &mdash; the group would stop merely moving goods and start owning the
         arteries they moved through. That logic, the move from trader to
-        infrastructure-owner, is the engine we take apart in Part II.
+        infrastructure-owner, is the engine we take apart in Volume II.
       </p>
 
       <InlineFigure

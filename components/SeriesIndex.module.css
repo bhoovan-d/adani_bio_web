@@ -1,3 +1,39 @@
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.groupHead {
+  margin-bottom: var(--space-xs);
+}
+
+.groupLabel {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ember-ink);
+  margin-bottom: 0.4rem;
+}
+
+.groupTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  color: var(--ink-strong);
+}
+
+.groupBlurb {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  max-width: 52ch;
+}
+
 .list {
   list-style: none;
   padding: 0;

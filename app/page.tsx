@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { SeriesIndex } from "@/components/SeriesIndex";
 import {
-  parts,
+  volumes,
+  orderedPosts,
+  getVolume,
   SERIES_TITLE,
   SERIES_ISSUE,
   COVER_IMAGE,
@@ -11,7 +13,9 @@ import {
 import styles from "./page.module.css";
 
 export default function Home() {
-  const lead = parts.find((p) => p.hasContent) ?? parts[0];
+  const ordered = orderedPosts();
+  const lead = ordered.find((p) => p.hasContent) ?? ordered[0];
+  const leadVolume = getVolume(lead.volume);
 
   return (
     <div className={styles.page}>
@@ -57,12 +61,12 @@ export default function Home() {
           </div>
 
           <ol className={styles.coverlines} aria-label="Inside this issue">
-            {parts.map((p) => (
-              <li key={p.slug} className={styles.coverline}>
+            {volumes.map((v) => (
+              <li key={v.number} className={styles.coverline}>
                 <span className={`${styles.coverlineNum} tnum`}>
-                  {p.numeral}
+                  {v.numeral}
                 </span>
-                <span className={styles.coverlineText}>{p.part}</span>
+                <span className={styles.coverlineText}>{v.title}</span>
               </li>
             ))}
           </ol>
@@ -99,7 +103,7 @@ export default function Home() {
           </div>
           <div className={styles.leadBody}>
             <p className={`${styles.leadKicker} tnum`}>
-              Part {lead.numeral} · {lead.part}
+              Volume {leadVolume?.numeral} · {leadVolume?.title}
             </p>
             <h2 id="lead-title" className={styles.leadTitle}>
               {lead.title}
@@ -120,8 +124,8 @@ export default function Home() {
             In This Issue
           </h2>
           <p className={styles.contentsIntro}>
-            Four parts, read in order for the full arc — or start wherever the
-            story pulls you.
+            Twelve posts across four volumes, read in order for the full arc —
+            or start wherever the story pulls you.
           </p>
         </div>
         <SeriesIndex />

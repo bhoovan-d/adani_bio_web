@@ -62,7 +62,7 @@ export function SiteHeader() {
         </Link>
         <nav className={styles.nav} aria-label="Series">
           <Link href="/#parts" className={styles.navLink}>
-            The Parts
+            The Series
           </Link>
           <Link href="/#about" className={styles.navLink}>
             About the Series

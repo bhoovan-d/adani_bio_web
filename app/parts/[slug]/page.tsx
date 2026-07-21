@@ -4,11 +4,11 @@ import Link from "next/link";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { ContinueBlock } from "@/components/ContinueBlock";
 import { contentBySlug } from "@/content";
-import { getPart, parts } from "@/lib/series";
+import { getPost, posts, dispatches } from "@/lib/series";
 import styles from "./forthcoming.module.css";
 
 export function generateStaticParams() {
-  return parts.map((p) => ({ slug: p.slug }));
+  return [...posts, ...dispatches].map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -17,44 +17,37 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const part = getPart(slug);
-  if (!part) return {};
+  const post = getPost(slug);
+  if (!post) return {};
   return {
-    title: part.title,
-    description: part.standfirst,
+    title: post.title,
+    description: post.standfirst,
   };
 }
 
-export default async function PartPage({
+export default async function PostPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const part = getPart(slug);
-  if (!part) notFound();
+  const post = getPost(slug);
+  if (!post) notFound();
 
   const Content = contentBySlug[slug];
 
   return (
     <>
-      <ArticleLayout part={part} dropcap={Boolean(Content)}>
+      <ArticleLayout post={post} dropcap={Boolean(Content)}>
         {Content ? (
           <Content />
         ) : (
           <div className={styles.forthcoming}>
             <p className={styles.badge}>Forthcoming</p>
             <p className={styles.lead}>
-              This Part is still being written. Here is what it will cover.
+              This post is still being written. Here is what it will cover.
             </p>
-            <ul className={styles.sections}>
-              {part.sections.map((s) => (
-                <li key={s.heading} className={styles.section}>
-                  <span className={styles.sectionHeading}>{s.heading}</span>
-                  <span className={styles.sectionBlurb}>{s.blurb}</span>
-                </li>
-              ))}
-            </ul>
+            <p className={styles.preview}>{post.standfirst}</p>
             <Link href="/#parts" className={styles.back}>
               ← Back to the series
             </Link>
@@ -62,7 +55,7 @@ export default async function PartPage({
         )}
       </ArticleLayout>
 
-      {part.hasContent && <ContinueBlock current={part} />}
+      {post.hasContent && <ContinueBlock current={post} />}
     </>
   );
 }

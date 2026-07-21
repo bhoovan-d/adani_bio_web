@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Part } from "@/lib/series";
+import { getVolume, type Post } from "@/lib/series";
 import styles from "./ArticleLayout.module.css";
 
 function formatDate(iso: string): string {
@@ -13,48 +13,56 @@ function formatDate(iso: string): string {
 }
 
 export function ArticleLayout({
-  part,
+  post,
   children,
   dropcap = true,
   showLead = true,
 }: {
-  part: Part;
+  post: Post;
   children: React.ReactNode;
   /** Drop-cap the first paragraph — only for real article prose. */
   dropcap?: boolean;
   /** Show the full-width lead image below the header. */
   showLead?: boolean;
 }) {
+  const volume = getVolume(post.volume);
+  const kickerLabel =
+    post.kind === "mini" ? "Dispatch" : `Volume ${volume?.numeral}`;
+
   return (
     <article className={styles.article}>
       <header className={styles.head}>
         <div className={styles.kicker}>
           <Link href="/#parts" className={styles.kickerLink}>
             <span className={`${styles.kickerNumeral} tnum`}>
-              Part {part.numeral}
+              {kickerLabel}
             </span>
           </Link>
-          <span className={styles.kickerDivider} aria-hidden="true" />
-          <span className={styles.kickerVolume}>{part.part}</span>
+          {volume && post.kind !== "mini" && (
+            <>
+              <span className={styles.kickerDivider} aria-hidden="true" />
+              <span className={styles.kickerVolume}>{volume.title}</span>
+            </>
+          )}
         </div>
 
-        <h1 className={styles.title}>{part.title}</h1>
+        <h1 className={styles.title}>{post.title}</h1>
 
-        <p className={styles.standfirst}>{part.standfirst}</p>
+        <p className={styles.standfirst}>{post.standfirst}</p>
 
         <div className={styles.meta}>
-          <span className={styles.byline}>{part.byline}</span>
+          <span className={styles.byline}>{post.byline}</span>
           <span className={styles.metaDot} aria-hidden="true" />
-          {part.published && (
+          {post.published && (
             <>
-              <time className="tnum" dateTime={part.published}>
-                {formatDate(part.published)}
+              <time className="tnum" dateTime={post.published}>
+                {formatDate(post.published)}
               </time>
               <span className={styles.metaDot} aria-hidden="true" />
             </>
           )}
           <span className={`${styles.metaRead} tnum`}>
-            {part.readingMinutes} min read
+            {post.readingMinutes} min read
           </span>
         </div>
       </header>
@@ -63,8 +71,8 @@ export function ArticleLayout({
         <figure className={styles.lead}>
           <div className={styles.leadMedia}>
             <Image
-              src={part.image}
-              alt={part.imageAlt}
+              src={post.image}
+              alt={post.imageAlt}
               fill
               priority
               sizes="(max-width: 66rem) 100vw, 62rem"
@@ -72,7 +80,7 @@ export function ArticleLayout({
             />
           </div>
           <figcaption className={styles.leadCaption}>
-            {part.imageAlt}
+            {post.imageAlt}
           </figcaption>
         </figure>
       )}

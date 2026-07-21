@@ -2,12 +2,13 @@
   background: var(--paper-deep);
   border-top: 1px solid var(--rule);
   margin-top: var(--space-3xl);
-  padding: var(--space-2xl) clamp(1.25rem, 4vw, 2.5rem) var(--space-lg);
+  padding: var(--space-2xl) 0 var(--space-lg);
 }
 
 .inner {
   max-width: var(--page-max);
   margin-inline: auto;
+  padding-inline: var(--page-pad);
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-xl);
@@ -62,6 +63,7 @@
 .fineprint {
   max-width: var(--page-max);
   margin: var(--space-2xl) auto 0;
+  padding-inline: var(--page-pad);
   padding-top: var(--space-md);
   border-top: 1px solid var(--rule);
   color: var(--ink-faint);

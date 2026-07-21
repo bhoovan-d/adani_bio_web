@@ -1,7 +1,7 @@
 .wrap {
-  max-width: 62rem;
+  max-width: var(--article-max);
   margin: var(--space-2xl) auto 0;
-  padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+  padding: 0 var(--page-pad);
 }
 
 .eyebrow {

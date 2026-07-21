@@ -10,8 +10,8 @@ export function SiteFooter() {
           <span className={styles.mark} aria-hidden="true" />
           <p className={styles.title}>{SERIES_TITLE}</p>
           <p className={styles.note}>
-            A four-part reading series on how the group was built. Independently
-            written; not affiliated with the Adani Group.
+            A twelve-post reading series, in four volumes, on how the group was
+            built. Independently written; not affiliated with the Adani Group.
           </p>
         </div>
         <nav className={styles.links} aria-label="Footer">
@@ -19,7 +19,7 @@ export function SiteFooter() {
             Home
           </Link>
           <Link href="/#parts" className={styles.link}>
-            The Parts
+            The Series
           </Link>
           <Link href="/#about" className={styles.link}>
             About
