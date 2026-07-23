@@ -42,10 +42,10 @@
   max-width: var(--page-max);
   margin-inline: auto;
   min-height: 100svh;
-  padding: calc(3.5rem + var(--space-xl)) var(--page-pad) var(--space-2xl);
+  padding: calc(var(--header-h) + var(--space-xl)) var(--page-pad) var(--space-2xl);
   display: grid;
   grid-template-columns: 1fr auto;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto minmax(var(--space-2xl), 1fr) auto;
   gap: var(--space-lg);
   color: var(--on-dark);
 }
@@ -79,10 +79,13 @@
 
 .coverTitle {
   color: #fff;
-  font-size: clamp(3rem, 11vw, 6rem);
-  line-height: 0.92;
+  font-size: clamp(2.75rem, 8.5vw, 5.5rem);
+  line-height: 0.94;
   letter-spacing: -0.03em;
   text-shadow: 0 2px 40px oklch(0.15 0.012 55 / 0.5);
+  /* The two-line stack is set by an explicit <br> in the markup; keep each line
+     on its own row rather than letting the inherited h1 `balance` re-ravel it. */
+  text-wrap: nowrap;
 }
 
 .coverStandfirst {

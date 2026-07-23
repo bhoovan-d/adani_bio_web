@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 import Foundation from "./the-foundation-and-the-man";
+import WeatheringTheStorm from "./weathering-the-storm";
 
 /** Maps a Post slug to its written article body.
  *
@@ -11,4 +12,5 @@ import Foundation from "./the-foundation-and-the-man";
  *  content module in content/, and register the slug below. */
 export const contentBySlug: Record<string, ComponentType> = {
   "the-foundation-and-the-man": Foundation,
+  "weathering-the-storm": WeatheringTheStorm,
 };

@@ -1,5 +1,5 @@
 /* ============================================================
-   Series data model — the Adani Empire, told in twelve.
+   Series data model — the Adani Project, told in twelve.
    Four Volumes of three Posts each (12 in all). One article
    template is reused for every Post; `hasContent` marks which
    are written vs. forthcoming.
@@ -36,7 +36,7 @@ export type Post = {
   kind?: "feature" | "mini"; // "mini" = an editor's own dispatch
 };
 
-export const SERIES_TITLE = "The Adani Empire";
+export const SERIES_TITLE = "The Adani Project";
 export const SERIES_TAGLINE =
   "How one group was assembled — the man, the money, the map, and the frontiers ahead.";
 export const SERIES_ISSUE = "Issue 01 · 2026";
@@ -126,8 +126,8 @@ export const posts: Post[] = [
     standfirst:
       "The Hindenburg report wiped over a hundred billion dollars off the group in weeks. What happened between the pulled share sale and the re-rating — and what it revealed about how Adani manages a crisis.",
     readingMinutes: 9,
-    published: "",
-    hasContent: false,
+    published: "2026-07-21",
+    hasContent: true,
     byline: "By The Editors",
     image: VOL_IMAGE[1].image,
     imageAlt: VOL_IMAGE[1].imageAlt,

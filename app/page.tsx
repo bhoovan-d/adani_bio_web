@@ -42,7 +42,19 @@ export default function Home() {
 
           <div className={styles.coverHead}>
             <h1 id="cover-title" className={styles.coverTitle}>
-              {SERIES_TITLE}
+              {/* Deliberate wordmark stack: last word drops to its own line
+                  ("The Adani" / "Project"). Kept generic so it tracks SERIES_TITLE. */}
+              {(() => {
+                const words = SERIES_TITLE.split(" ");
+                const last = words.pop();
+                return (
+                  <>
+                    {words.join(" ")}
+                    <br />
+                    {last}
+                  </>
+                );
+              })()}
             </h1>
             <p className={styles.coverStandfirst}>
               How one group was assembled — the man, the money, the map, and the

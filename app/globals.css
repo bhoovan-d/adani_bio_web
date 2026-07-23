@@ -1,5 +1,5 @@
 /* ============================================================
-   The Adani Empire — Series
+   The Adani Project — Series
    Design system: "The Longform Dossier"
    Restrained editorial · paper + ink + one ember accent
    ============================================================ */
@@ -48,7 +48,7 @@
   /* ---- Reading measure ---- */
   --measure: 40rem;         /* ~68ch body column */
   --measure-wide: 46rem;    /* header / standfirst */
-  --page-max: 78rem;        /* outer page frame */
+  --page-max: 90rem;        /* outer page frame */
   --article-max: 62rem;     /* narrower reading frame (body + margin notes) */
   --margin-col: 15rem;      /* dossier margin note column */
   --page-pad: clamp(1.25rem, 4vw, 2.5rem); /* shared horizontal gutter */
